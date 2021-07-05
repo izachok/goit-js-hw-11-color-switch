@@ -18,13 +18,17 @@ function onStartBtnClick() {
   }
   intervalId = setInterval(setRandomColor, 1000);
   isStarted = true;
-  refs.startBtn.disabled = true;
+  updateStartBtnStatus();
 }
 
 function onStopBtnClick() {
   clearInterval(intervalId);
   isStarted = false;
-  refs.startBtn.disabled = false;
+  updateStartBtnStatus();
+}
+
+function updateStartBtnStatus() {
+  refs.startBtn.disabled = isStarted;
 }
 
 function setRandomColor() {
